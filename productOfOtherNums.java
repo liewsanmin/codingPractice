@@ -18,44 +18,37 @@ optimze : 1 array, one forward, products except that one
           edge null input and length == 1
 */
 
-public class Solution{
-    public static void main(String[] args){
-        int[] arr = {1,2,3};
-        //           6 0 0
-        int[] ans = productOfOtherNums(arr);
+public class Solution {
+    public static int[] getProductsOfAllIntsExceptAtIndex(int[] array){
+        if(array.length < 2)
+            throw new IllegalArgumentException("Requires at least array of size 2");
+
+        int productSoFar = 1;
+        int[] answer = new int[array.length];
+        for(int i = 0; i < array.length; i++){
+            answer[i] = productSoFar;
+            productSoFar *= array[i];
+
+        }
+
+        productSoFar = 1;
+        for(int j = array.length - 1; j >= 0; j--){
+            answer[j] *= productSoFar;
+            productSoFar *= array[j];
+
+        }
+        return answer;
+
+    }
+    public static void main(String[] args) {
+        // run your function through some test cases here
+        // remember: debugging is half the battle!
+		int[] array = {1,7,3,4};
+        int[] ans = getProductsOfAllIntsExceptAtIndex(array);
         for(int curr : ans){
             System.out.print(curr + " ");
         }
-        System.out.println();
-    }
 
-    public static int[] productOfOtherNums(int[] arr){
-        if(arr.length == 1)
-            return null;
-        int arrLen = arr.length;
-        // [1 2 3]
-        /**
 
-        currProd = 2
-        */
-        // forwardArr [1 1 2]
-        int[] forwardArr = new int[arrLen];
-        int currProd = 1;
-        for(int i = 0; i < arrLen; i++){
-            forwardArr[i] = currProd;
-            currProd *= arr[i];
-        }
-
-        /**
-        currProd = 6
-        forwardArr[6 3 2]
-        */
-        currProd = 1;
-        for(int i = arrLen - 1; i >= 0; i--){
-            forwardArr[i] *= currProd;
-            currProd *= arr[i];
-        }
-
-        return forwardArr;
     }
 }
