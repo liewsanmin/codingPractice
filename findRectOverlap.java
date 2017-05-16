@@ -64,6 +64,9 @@ public class findRectOverlap{
         Point highestStartPoint = new Point(highestStartX, highestStartY);
         Point lowestEndPoint = new Point(lowestEndX, lowestEndY);
 
+        System.out.println("highestStartPoint: " + highestStartPoint.toString());
+        System.out.println("lowestEndPoint: " + lowestEndPoint.toString());
+
         if(highestStartPoint.x >= lowestEndPoint.x ||
            highestStartPoint.y <= lowestEndPoint.y){
                return new Rectangle(null, null, null, null);
