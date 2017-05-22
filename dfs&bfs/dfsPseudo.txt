@@ -1,0 +1,20 @@
+DFS(G)
+for each vertex u in G.V
+    u.color = WHITE
+    u.pi = NIL
+time = 0
+for each vertex u in G.V
+    if u.color == WHITE
+        DFS-VISIT(G,u)
+
+DFS-VISIT(G,u)
+    time = time + 1
+    u.d = time
+    u.color = gray
+    for each v in G.Adj[u]
+        if v.color == WHITE
+            v.pi = u
+            DFS-VISIT(G,v)
+    u.color = BLACK
+    time = time + 1
+    u.f = time
