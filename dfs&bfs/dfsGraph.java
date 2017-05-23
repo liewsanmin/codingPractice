@@ -21,25 +21,25 @@ class dfsGraph
     }
 
     //Function to add an edge into the graph
-    void addEdge(int v, int w)
+    void addEdge(int v, int w) // WHITE & NIL
     {
         adj[v].add(w);  // Add w to v's list.
     }
 
     // A function used by DFS
-    void DFSUtil(int v,boolean visited[])
+    void DFSUtil(int v,boolean visited[]) // VISIT
     {
         // Mark the current node as visited and print it
-        visited[v] = true;
+        visited[v] = true; // BLACK
         System.out.print(v+" ");
 
         // Recur for all the vertices adjacent to this vertex
         Iterator<Integer> i = adj[v].listIterator();
-        while (i.hasNext())
+        while (i.hasNext()) // for each vertex
         {
             int n = i.next();
-            if (!visited[n])
-                DFSUtil(n, visited);
+            if (!visited[n]) // if u.color == WHITE
+                DFSUtil(n, visited); // VISIT
         }
     }
 
