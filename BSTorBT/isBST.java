@@ -18,6 +18,7 @@ algo 1 :  for each subtree, return false if max of left is larger or min of righ
 algo 2 : have a recursive variable of min and max
          when recurse left, update max
          when recurse right, update min
+         DFS walkthrough
 
          time - O(n)
          space - O(log n) on a balanced tree
