@@ -14,7 +14,7 @@ variables during recursion : prev
     right null
     left null ==> null
 
-edge null ==> null
+    edge null ==> null
 
 time -   O(h) time  O(lgn) if the tree is balanced, O(n) otherwise
 space -  O(h) space  O(lgn) if the tree is balanced, O(n) otherwise
@@ -79,7 +79,6 @@ public class Solution{
     public static int secondLargest(Node node){
         if(node == null || (node.right == null && node.left == null))
             throw new IllegalArgumentException("Tree must have at least 2 nodes");
-
 
         Node curr = node;
         Node prev = curr;
