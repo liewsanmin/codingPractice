@@ -20,8 +20,10 @@ def get3MostFrequent(filename):
         return curlist[0:3]
     except Exception as e:
         print(str(e))
-        import pdb; pdb.set_trace()
 
+"""
+get total input and output bytes
+"""
 def getTotalBytes(filename):
     try:
         hm = {}
@@ -42,7 +44,7 @@ def getTotalBytes(filename):
         return hm
     except Exception as e:
         print(str(e))
-        import pdb; pdb.set_trace()
+        
 
 if __name__ == "__main__":
     # print(get3MostFrequent("screen_share_interview_data.csv"))
